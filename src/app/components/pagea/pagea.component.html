@@ -1,0 +1,42 @@
+<div class="container-fluid row" style="margin-top: 60px; margin-bottom: 60px;">
+    <h1
+      class="h4 card-subtitle text-muted text-center font-monospace rounded-4 bg-white bg-opacity-50 d-none d-md-block"
+      style="width: 30%; margin: auto;">NOTICIAS</h1>
+    <section class="col-md-9 order-sm-last" style="margin-top: 2rem;">
+      <div class="row">
+        <div class="col-12 col-sm-6 col-md-4 " *ngFor="let n of noticias; let i = index" >
+          <div class="card mb-3 border-dark border-2" >
+            <img class="card-img-top" [src]="n.mainMedia[0].original.url" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{n.title}}</h5>
+              <button type="button" class="btn btn-dark" (click)="obtenerNoticia(i)"  data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="color: white;">View More...</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-dark" type="submit" (click)="obtenerNoticias()" style="color: white;">Show news</button>
+    </section>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">{{noticia.article.title}}</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img class="card-img-top" [src]="noticia.article.mainMedia[0].original.url" alt="...">
+            <p class="fs-6 fw-lighter">{{noticia.article.publishedDate}}</p>
+            <div [innerHTML]="sanitizedContent"></div>
+            <p class="fs-6 fw-lighter">Category: {{noticia.categoryName}}</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <aside class="col-md-3 order-md-last order-first">
+      <img src="assets/img/insale2.jpg" class="img-fluid d-none mt-5 d-md-block border border-dark border-2" alt="...">
+      <img src="assets/img/insale.jpg" class="img-fluid d-none mt-5 d-md-block border border-dark border-2" alt="...">
+    </aside>
+</div>

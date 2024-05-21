@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <div class="text-center m-5">
+    <h1 class="mb-5">Traductor de idiomas</h1>
+    <!-- <button type="button" class="btn btn-danger" (click)="obtenerLenguajes()"></button> -->
+    <div class="row mx-auto" style="width: 16rem;">
+    <div class="col-6">
+      <input class="form-check-input" type="radio" name="español" id="español" [(ngModel)]="source" [value]="'es'"checked>
+      <label class="form-check-label" for="español">
+        <img src="assets/img/arg-bandera.png" alt="esp" class="image-fluid" style="width: 2rem; padding-left: 5px;">Español
+      </label>
+    </div>
+    <div class="col-6">
+      <input class="form-check-input" type="radio" name="ingles" id="ingles" [(ngModel)]="source" [value]="'en'" checked>
+      <label class="form-check-label" for="ingles">
+        <img src="assets/img/eu-bandera.png" style="width: 1rem;" class="image-fluid" style="width: 2rem; padding-left: 5px;">Ingles
+      </label>
+    </div>
+   </div>
+    <div class="mb-3">
+      <label for="texto" class="form-label"></label>
+      <textarea class="form-control mx-auto" name="texto" id="texto" placeholder="ingrese texto a traducir..."
+        style="height: 8rem; width: 17rem;" [(ngModel)]="texto"></textarea>
+    </div>
+    <div class="row mx-auto mb-2" style="width: 16rem;">
+      <div class="col-6">
+        <input class="form-check-input" type="radio" name="españoltrad" id="españoltrad" [(ngModel)]="target" [value]="'es'"checked>
+        <label class="form-check-label" for="españoltrad">
+          <img src="assets/img/arg-bandera.png" alt="esp" class="image-fluid" style="width: 2rem; padding-left: 5px;">Español
+        </label>
+      </div>
+      <div class="col-6">
+        <input class="form-check-input" type="radio" name="inglestrad" id="inglestrad" [(ngModel)]="target" [value]="'en'" checked>
+        <label class="form-check-label" for="inglestrad">
+          <img src="assets/img/eu-bandera.png" style="width: 1rem;" class="image-fluid" style="width: 2rem; padding-left: 5px;">Ingles
+        </label>
+        </div>
+      </div>
+    <button class="btn btn-success" (click)="traducirTexto()">TRADUCIR</button>
+    <div class="mb-3">
+      <label for="source" class="form-label"></label>
+      <textarea class="form-control mx-auto" name="source" id="source" [(ngModel)]="textoTraducido" placeholder="{{textoTraducido}}"
+        style="height: 8rem; width: 17rem;" readonly></textarea>
+    </div>
+  </div>
+</div>
